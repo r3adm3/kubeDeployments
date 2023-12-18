@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backstage-deployment
+spec:
+  selector:
+    matchLabels:
+      app: backstage
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: backstage
+    spec:
+      containers:
+      - name: backstage
+        image: daed.duckdns.org:50000/adebackstage:18
+        ports:
+        - containerPort: 7007
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: backstage
+  name: backstage
+spec:
+    ports:
+    - nodePort: 32007
+      port: 7007
+      protocol: TCP
+      targetPort: 7007
+    selector:
+      app: backstage
+    type: NodePort
