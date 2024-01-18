@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations: {}
+  name: azpagent-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azpagent
+  template:
+    metadata:
+      labels:
+        app: azpagent
+    spec:
+      containers:
+      - name: azpagent
+        image: daed.duckdns.org:50000/azp-agent:linux
+        env:
+        - name: AZP_URL
+          value: <AZP_URL>
+        - name: AZP_TOKEN
+          value: <AZP_TOKEN>
+        - name: AZP_POOL
+          value: Default
+        - name: AZP_AGENT_NAME
+          value: asp-agent
+
