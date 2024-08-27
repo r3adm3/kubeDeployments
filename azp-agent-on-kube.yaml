@@ -18,11 +18,11 @@ spec:
         image: daed.duckdns.org:50000/azp-agent:linux
         env:
         - name: AZP_URL
-          value: <AZP_URL>
+          value: https://dev.azure.com/<my_instance>
         - name: AZP_TOKEN
-          value: <AZP_TOKEN>
+          value: <a_PAT>
         - name: AZP_POOL
           value: Default
         - name: AZP_AGENT_NAME
-          value: asp-agent
+          value: <agent_name>
 

@@ -17,13 +17,13 @@ spec:
       containers:
       - env:
         - name: REGISTRY_URL
-          value: https://192.168.1.171:50000/v2
+          value: <myregistry_urL>
         - name: REGISTRY_TRUST_ANY_SSL
           value: 'true'
         - name: REGISTRY_NAME
-          value: daed.duckdns.org:50000
+          value: <myregistry.name>
         - name: REGISTRY_BASIC_AUTH
-          value: ZG9ja2VydXNlcjp3SEdNd3FWS3pMQTQ=
+          value: <base64_pwd>
         image: hyper/docker-registry-web
         name: registryweb
         ports:
