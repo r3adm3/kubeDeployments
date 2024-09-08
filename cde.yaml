@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations: {}
+  name: cde-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cde
+  template:
+    metadata:
+      labels:
+        app: cde
+    spec:
+      containers:
+      - env:
+        image: daed.duckdns.org:50000/cde:angel
+        name: cde

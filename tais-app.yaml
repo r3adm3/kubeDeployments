@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations: {}
-  name: monolithsvc-deployment
+  name: taisapp-deployment
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: monolithsvc
+      app: taisapp
   template:
     metadata:
       labels:
-        app: monolithsvc
+        app: taisapp
     spec:
       containers:
       - env:
-        image: daed.duckdns.org:50000/monolithsvc:kashkaval-dev
-        name: monolithsvc
+        image: daed.duckdns.org:50000/tais-app:4
+        name: taisapp
         ports:
-        - containerPort: 8080
+        - containerPort: 5000
 
 ---
 apiVersion: v1
@@ -27,15 +27,15 @@ kind: Service
 metadata:
   annotations: {}
   labels:
-    app: monolithsvc
-  name: monolithsvc
+    app: taisapp
+  name: taisapp
   namespace: default
 spec:
   ports:
-  - nodePort: 30881
-    port: 8080
+  - nodePort: 35000
+    port: 5000
     protocol: TCP
-    targetPort: 8080
+    targetPort: 5000
   selector:
-    app: monolithsvc
+    app: taisapp
   type: NodePort
