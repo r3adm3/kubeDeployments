@@ -24,8 +24,8 @@ kind: Service
 metadata:
   labels:
     app: nginx
-    namespace: default
   name: nginx-service
+  namespace: default
 spec:
     ports:
     - nodePort: 30080
