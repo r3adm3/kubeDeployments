@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: daed.duckdns.org:50000/nginx-ade:4
+        image: daed.duckdns.org:50000/nginx-ade:latest
         ports:
         - containerPort: 80
 ---
